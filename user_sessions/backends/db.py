@@ -67,7 +67,7 @@ class SessionStore(SessionBase):
         create a *new* entry (as opposed to possibly updating an existing
         entry).
         """
-        if "Amazon-Route53-Health-Check-Service" not in self.user_agent:
+        if "Amazon-Route53-Health-Check-Service" not in self.user_agent and "StatusCake" not in self.user_agent:
             obj = Session(
                 session_key=self._get_or_create_session_key(),
                 session_data=self.encode(self._get_session(no_load=must_create)),
